@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<style type="text/css">
+	label {
+		left: 22px;
+	}
+	.bord {
+		position: absolute;
+		top: 200px;
+		text-align: center;
+		width: 95%;
+		height: 200px;
+	}
+	.gutter {
+		width: 99%;
+		clear: both;
+		height: 25px;
+	}
+	.panel {
+		position: relative;
+		width: 300px;
+		height: 130px;
+		left: 50%;
+		margin-left: -150px;
+		padding-top: 20px;
+		background-color: rgba(70,70,70,.3);
+	}
+	#login {
+		position: absolute;
+		left: 50px;
+	}
+	#regist {
+		position: absolute;
+		right: 50px;
+	}
+	</style>
+	<script type="text/javascript">
+	function savepic(){
+        if(document.all.a1==null){
+            objIframe=document.createElement("IFRAME");
+            document.body.appendChild(objIframe);
+            objIframe.outerHTML ="<iframe name=a1 style='width:200px;hieght:500px' src=" + pic1.href + "></iframe>";
+        	re=setTimeout("savepic()",1)
+        } else {
+            clearTimeout(re)
+            pic = window.open(pic1.href,"a1")
+            pic.document.execCommand("SaveAs")
+            a1.removeNode(true)
+        }
+    }
+	</script>
+</head>
+<body>
+	<div class="bord">
+	<h2>Login</h2>
+		<div class="panel">
+			<label for="user">uesrName : </label><input type="text" id="user" name="user"><br>
+			<div class="gutter"></div>
+			<label for="pwd">password : </label><input type="password" name="pwd" id="pwd"><br>
+			<div class="gutter"></div>
+			<div class="operation">
+			<input type="button" value="login" id="login">
+			<input type="button" value="regist" id="regist">
+			</div>
+		</div>
+	</div>
+    <a href="http://localhost:3000/download/sad" id=pic1 onclick="savepic();return false;" style="cursor:hand">download</a>
+</body>
+</html>
